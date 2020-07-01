@@ -4,11 +4,10 @@ This is test assignment submited by Michael Kilesa.
 
 ## Development server
 
-Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
+Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:4200/`.
 ## Description
 
-Bookmarks module contains everything needed. I added effects, mock json response and loading indicator to make it more complete.
+Bookmarks module contains everything needed. I added effects, mock json response and loading indicator to make it more complete. I use Ramda to handle immutability.
 
 bookmarks.types describes persistent state.
 
