@@ -1,0 +1,65 @@
+<div *ngIf="model$ | async as model">
+
+  <h1>
+    Bookmarks
+    <a mat-button
+       href="https://www.linkedin.com/in/mkilesa/"
+       target="_blank">
+      Michael Kilesa
+    </a>
+  </h1>
+
+  <div class="wrapper">
+
+    <mat-spinner *ngIf="model.loading">
+    </mat-spinner>
+
+    <mat-nav-list *ngIf="!model.loading">
+      <ng-container *ngFor="let item of model.groups | keyvalue; trackBy: trackByFn;">
+        <ng-container *ngIf="item.value.length">
+          <div mat-subheader>{{item.key}}</div>
+          <mat-list-item *ngFor="let bookmark of item.value; trackBy: trackByFn;">
+            <a matLine
+               [href]="bookmark.url"
+               (click)="$event.preventDefault()">
+              {{ bookmark.name }}
+            </a>
+            <button mat-icon-button
+                    (click)="deleteBookmark(bookmark)">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </ng-container>
+    </mat-nav-list>
+
+    <div>
+      <h2>Add New Bookmark</h2>
+      <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput
+                 formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Url</mat-label>
+          <input matInput
+                 formControlName="url">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Group</mat-label>
+          <input matInput
+                 formControlName="group">
+        </mat-form-field>
+      </form>
+      <button mat-raised-button
+              [disabled]="form.invalid"
+              (click)="addBookmark(form.value)">
+        Add
+      </button>
+    </div>
+
+  </div>
+
+</div>

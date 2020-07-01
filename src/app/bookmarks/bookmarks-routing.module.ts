@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BookmarksComponent } from './bookmarks.component';
 
 const routes: Routes = [{
   path: '',
-  loadChildren: () => import('./bookmarks/bookmarks.module').then(m => m.BookmarksModule)
+  component: BookmarksComponent,
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class BookmarksRoutingModule { }

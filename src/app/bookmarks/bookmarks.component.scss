@@ -1,0 +1,14 @@
+h1 {
+  padding: 30px;
+}
+
+.wrapper {
+
+  display: flex;
+  justify-content: space-evenly;
+
+  .mat-divider {
+    margin-bottom: 40px;
+  }
+
+}
