@@ -8,7 +8,7 @@ import { EMPTY } from 'rxjs';
 @Injectable()
 export class BookmarksEffects {
 
-  loadPersonas$ = createEffect(() => this.actions$.pipe(
+  loadBookmarks$ = createEffect(() => this.actions$.pipe(
     ofType(loadBookmarks),
     switchMap(() => this.bookmarksService.getBookmarks().pipe(
       map(bookmarks => loadBookmarksSuccess({ bookmarks })),
